@@ -1,6 +1,6 @@
 {
-    "name": "pterodactyl/panel",
-    "description": "The free, open-source game management panel. Supporting Minecraft, Spigot, BungeeCord, and SRCDS servers.",
+    "name": "nxdactyl/panel",
+    "description": "Nx Panel \u2014 a free, open-source game server management panel.",
     "license": "MIT",
     "authors": [
         {
@@ -21,7 +21,6 @@
         "ext-json": "*",
         "ext-mbstring": "*",
         "ext-pdo": "*",
-        "ext-pdo_mysql": "*",
         "ext-posix": "*",
         "ext-zip": "*",
         "aws/aws-sdk-php": "^3.369",
@@ -50,7 +49,8 @@
         "symfony/mailgun-mailer": "^7.4.0",
         "symfony/postmark-mailer": "^7.4.0",
         "symfony/yaml": "^7.4.0",
-        "webmozart/assert": "^1.11.0"
+        "webmozart/assert": "^1.11.0",
+        "ext-pdo_sqlite": "*"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^3.6",
