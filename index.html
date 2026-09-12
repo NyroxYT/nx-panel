@@ -6,575 +6,451 @@
 
     <title>Nxdactyl Hosting</title>
 
-    <link rel="stylesheet" href="styles/style.css">
-
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #080b12;
-            color: #ffffff;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .navbar {
-            width: 100%;
-            padding: 22px 7%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            background: rgba(8,11,18,0.9);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 21px;
-            font-weight: 800;
-        }
-
-        .logo-icon {
-            width: 42px;
-            height: 42px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #5865f2, #7c3aed);
-            box-shadow: 0 0 25px rgba(88,101,242,0.35);
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-
-        .nav-links a {
-            color: #a9afbd;
-            font-size: 14px;
-            transition: 0.2s;
-        }
-
-        .nav-links a:hover {
-            color: #ffffff;
-        }
-
-        .auth {
-            display: flex;
-            gap: 10px;
-        }
-
-        .login {
-            padding: 10px 17px;
-            border: 1px solid #303746;
-            border-radius: 9px;
-        }
-
-        .register {
-            padding: 10px 17px;
-            border-radius: 9px;
-            background: #5865f2;
-            color: white !important;
-        }
-
-        .hero {
-            min-height: 650px;
-            padding: 100px 7% 80px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 50px;
-        }
-
-        .hero-content {
-            max-width: 680px;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 8px 14px;
-            margin-bottom: 25px;
-            border: 1px solid rgba(88,101,242,0.35);
-            border-radius: 30px;
-            color: #9da7ff;
-            background: rgba(88,101,242,0.08);
-            font-size: 13px;
-        }
-
-        .hero h1 {
-            font-size: clamp(45px, 7vw, 78px);
-            line-height: 1.05;
-            margin-bottom: 25px;
-        }
-
-        .hero h1 span {
-            color: #6672ff;
-        }
-
-        .hero p {
-            color: #9ca3b2;
-            font-size: 18px;
-            line-height: 1.7;
-            max-width: 600px;
-            margin-bottom: 35px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 13px;
-            flex-wrap: wrap;
-        }
-
-        .primary-btn,
-        .secondary-btn {
-            padding: 14px 22px;
-            border-radius: 10px;
-            font-weight: 700;
-            transition: 0.2s;
-        }
-
-        .primary-btn {
-            background: #5865f2;
-        }
-
-        .primary-btn:hover {
-            background: #4752c4;
-            transform: translateY(-2px);
-        }
-
-        .secondary-btn {
-            border: 1px solid #303746;
-            color: #d8dce6;
-        }
-
-        .secondary-btn:hover {
-            background: #111722;
-        }
-
-        .server-card {
-            width: 360px;
-            padding: 25px;
-            border: 1px solid #242b38;
-            border-radius: 18px;
-            background: linear-gradient(145deg, #111621, #0b0e15);
-            box-shadow: 0 25px 70px rgba(0,0,0,0.4);
-        }
-
-        .card-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 25px;
-        }
-
-        .server-title {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .server-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
-            background: #171d2b;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .online {
-            color: #4ade80;
-            font-size: 12px;
-        }
-
-        .stat {
-            margin-top: 18px;
-        }
-
-        .stat-header {
-            display: flex;
-            justify-content: space-between;
-            color: #aeb5c3;
-            font-size: 13px;
-            margin-bottom: 8px;
-        }
-
-        .progress {
-            height: 7px;
-            border-radius: 20px;
-            background: #202633;
-            overflow: hidden;
-        }
-
-        .progress span {
-            display: block;
-            height: 100%;
-            width: 68%;
-            background: #5865f2;
-            border-radius: inherit;
-        }
-
-        .features {
-            padding: 90px 7%;
-            background: #0b0f17;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 38px;
-            margin-bottom: 12px;
-        }
-
-        .section-title p {
-            color: #858d9c;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .feature {
-            padding: 28px;
-            background: #10151f;
-            border: 1px solid #202735;
-            border-radius: 15px;
-        }
-
-        .feature-icon {
-            font-size: 27px;
-            margin-bottom: 20px;
-        }
-
-        .feature h3 {
-            margin-bottom: 12px;
-        }
-
-        .feature p {
-            color: #89919f;
-            line-height: 1.6;
-            font-size: 14px;
-        }
-
-        .about {
-            padding: 100px 7%;
-            text-align: center;
-        }
-
-        .about-content {
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .about h2 {
-            font-size: 38px;
-            margin-bottom: 20px;
-        }
-
-        .about p {
-            color: #969eac;
-            line-height: 1.8;
-            font-size: 16px;
-        }
-
-        .tech {
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .tech span {
-            padding: 10px 17px;
-            border: 1px solid #29303d;
-            background: #10151f;
-            border-radius: 9px;
-            color: #cbd1dc;
-            font-size: 13px;
-        }
-
-        footer {
-            padding: 30px 7%;
-            border-top: 1px solid #1e2530;
-            text-align: center;
-            color: #697181;
-            font-size: 13px;
-        }
-
-        @media (max-width: 900px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 70px;
-            }
-
-            .hero p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .buttons {
-                justify-content: center;
-            }
-
-            .server-card {
-                width: 100%;
-                max-width: 400px;
-            }
-
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        @media (max-width: 500px) {
-            .auth .login {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 44px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
 
-<header class="navbar">
+    <!-- Header -->
+    <header class="header">
 
-    <a href="index.html" class="logo">
-        <div class="logo-icon">N</div>
-        <span>Nxdactyl Hosting</span>
-    </a>
+        <div class="container header-container">
 
-    <nav class="nav-links">
-        <a href="#home">Գլխավոր</a>
-        <a href="#features">Հնարավորություններ</a>
-        <a href="#about">Մեր մասին</a>
-    </nav>
-
-    <div class="auth">
-        <a href="login.html" class="login">Login</a>
-        <a href="register.html" class="register">Register</a>
-    </div>
-
-</header>
-
-
-<main>
-
-<section class="hero" id="home">
-
-    <div class="hero-content">
-
-        <div class="badge">⚡ Nxdactyl Game Hosting</div>
-
-        <h1>
-            Կառավարիր քո
-            <span>Game Server-ը</span>
-            հեշտությամբ։
-        </h1>
-
-        <p>
-            Nxdactyl Hosting-ը ստեղծված է խաղային սերվերների
-            կառավարման համար։ Ստեղծիր, կառավարիր և վերահսկիր
-            քո սերվերները մեկ հարմար և ժամանակակից վահանակից։
-        </p>
-
-        <div class="buttons">
-            <a href="register.html" class="primary-btn">
-                Սկսել հիմա →
+            <!-- Logo -->
+            <a href="index.html" class="logo">
+                <div class="logo-icon">N</div>
+                <span>Nxdactyl Hosting</span>
             </a>
 
-            <a href="login.html" class="secondary-btn">
-                Մուտք գործել
-            </a>
+            <!-- Navigation -->
+            <nav class="navigation">
+                <a href="#home">Գլխավոր</a>
+                <a href="#features">Հնարավորություններ</a>
+                <a href="#about">Մեր մասին</a>
+            </nav>
+
+            <!-- Authentication -->
+            <div class="auth-buttons">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="register.html" class="register-btn">Register</a>
+            </div>
+
         </div>
 
-    </div>
+    </header>
 
 
-    <div class="server-card">
+    <!-- Main -->
+    <main>
 
-        <div class="card-top">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
 
-            <div class="server-title">
-                <div class="server-icon">🎮</div>
+            <div class="container hero-container">
 
-                <div>
-                    <strong>My Game Server</strong>
-                    <div class="online">● Online</div>
+                <div class="hero-content">
+
+                    <div class="hero-badge">
+                        Nxdactyl Game Hosting
+                    </div>
+
+                    <h1>
+                        Քո խաղային սերվերները՝
+                        <span>մեկ հզոր վահանակում</span>
+                    </h1>
+
+                    <p>
+                        Nxdactyl Hosting-ը ժամանակակից Game Hosting և
+                        Server Management հարթակ է, որը ստեղծվել է
+                        խաղային սերվերների հեշտ և արագ կառավարման համար։
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="register.html" class="primary-btn">
+                            Սկսել հիմա
+                        </a>
+
+                        <a href="login.html" class="secondary-btn">
+                            Մուտք գործել
+                        </a>
+
+                    </div>
+
                 </div>
+
+
+                <!-- Server Preview -->
+                <div class="server-preview">
+
+                    <div class="server-preview-header">
+
+                        <div class="server-info">
+
+                            <div class="server-icon">
+                                🎮
+                            </div>
+
+                            <div>
+                                <h3>My Game Server</h3>
+                                <span class="server-status">
+                                    ● Online
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="server-stats">
+
+                        <div class="stat">
+
+                            <div class="stat-header">
+                                <span>CPU</span>
+                                <span>68%</span>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-value cpu"></div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat">
+
+                            <div class="stat-header">
+                                <span>Memory</span>
+                                <span>4.2 GB / 8 GB</span>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-value memory"></div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="stat">
+
+                            <div class="stat-header">
+                                <span>Storage</span>
+                                <span>38 GB</span>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress-value storage"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Features -->
+        <section class="features" id="features">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span class="section-label">
+                        FEATURES
+                    </span>
+
+                    <h2>
+                        Ամեն ինչ՝ մեկ վայրում
+                    </h2>
+
+                    <p>
+                        Կառավարիր քո Game Server-ը պարզ,
+                        արագ և ժամանակակից համակարգի միջոցով։
+                    </p>
+
+                </div>
+
+
+                <div class="features-grid">
+
+                    <article class="feature-card">
+
+                        <div class="feature-icon">
+                            🖥️
+                        </div>
+
+                        <h3>
+                            Server Management
+                        </h3>
+
+                        <p>
+                            Ստեղծիր և կառավարիր քո խաղային
+                            սերվերները մեկ կառավարման վահանակից։
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card">
+
+                        <div class="feature-icon">
+                            ⚡
+                        </div>
+
+                        <h3>
+                            Արագ կառավարում
+                        </h3>
+
+                        <p>
+                            Ստացիր արագ և հարմար միջավայր
+                            սերվերների կառավարման համար։
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card">
+
+                        <div class="feature-icon">
+                            📊
+                        </div>
+
+                        <h3>
+                            Resource Monitoring
+                        </h3>
+
+                        <p>
+                            Հետևիր CPU-ի, RAM-ի և Storage-ի
+                            օգտագործմանը իրական ժամանակում։
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card">
+
+                        <div class="feature-icon">
+                            🔐
+                        </div>
+
+                        <h3>
+                            User Authentication
+                        </h3>
+
+                        <p>
+                            Login և Register համակարգ՝
+                            օգտատերերի համար։
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card">
+
+                        <div class="feature-icon">
+                            💾
+                        </div>
+
+                        <h3>
+                            Server Backups
+                        </h3>
+
+                        <p>
+                            Պահպանիր և կառավարիր քո սերվերների
+                            կարևոր տվյալները։
+                        </p>
+
+                    </article>
+
+
+                    <article class="feature-card">
+
+                        <div class="feature-icon">
+                            🎮
+                        </div>
+
+                        <h3>
+                            Game Hosting
+                        </h3>
+
+                        <p>
+                            Նախատեսված է խաղային սերվերների
+                            կառավարման և հոսթինգի համար։
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- About -->
+        <section class="about" id="about">
+
+            <div class="container about-container">
+
+                <div class="about-content">
+
+                    <span class="section-label">
+                        ABOUT NXDACTYL
+                    </span>
+
+                    <h2>
+                        Ինչի՞ համար է ստեղծվել Nxdactyl-ը
+                    </h2>
+
+                    <p>
+                        Nxdactyl Hosting-ը ստեղծվել է խաղային սերվերների
+                        կառավարումը ավելի պարզ, արագ և հասանելի դարձնելու
+                        նպատակով։
+                    </p>
+
+                    <p>
+                        Հարթակը նախատեսված է այն օգտատերերի համար,
+                        ովքեր ցանկանում են կառավարել իրենց Game Server-ները
+                        մեկ ժամանակակից և հարմար կառավարման համակարգից։
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Technologies -->
+        <section class="technologies">
+
+            <div class="container">
+
+                <div class="section-header">
+
+                    <span class="section-label">
+                        TECHNOLOGIES
+                    </span>
+
+                    <h2>
+                        Ինչո՞վ է ստեղծված
+                    </h2>
+
+                    <p>
+                        Nxdactyl Hosting-ի Front-End մասը ստեղծված է
+                        ժամանակակից Web տեխնոլոգիաներով։
+                    </p>
+
+                </div>
+
+
+                <div class="technology-list">
+
+                    <div class="technology">
+                        HTML5
+                    </div>
+
+                    <div class="technology">
+                        CSS3
+                    </div>
+
+                    <div class="technology">
+                        JavaScript
+                    </div>
+
+                    <div class="technology">
+                        Game Hosting
+                    </div>
+
+                    <div class="technology">
+                        Server Management
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Call To Action -->
+        <section class="cta">
+
+            <div class="container cta-container">
+
+                <h2>
+                    Պատրա՞ստ ես սկսել։
+                </h2>
+
+                <p>
+                    Ստեղծիր քո հաշիվը և սկսիր կառավարել
+                    քո խաղային սերվերները։
+                </p>
+
+                <a href="register.html" class="primary-btn">
+                    Ստեղծել հաշիվ
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+
+        <div class="container footer-container">
+
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-icon">N</div>
+                    <span>Nxdactyl Hosting</span>
+                </div>
+
+                <p>
+                    Ժամանակակից Game Hosting և
+                    Server Management հարթակ։
+                </p>
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Գլխավոր
+                </a>
+
+                <a href="login.html">
+                    Login
+                </a>
+
+                <a href="register.html">
+                    Register
+                </a>
+
             </div>
 
         </div>
 
-        <div class="stat">
-            <div class="stat-header">
-                <span>CPU</span>
-                <span>68%</span>
-            </div>
 
-            <div class="progress">
-                <span></span>
-            </div>
-        </div>
+        <div class="footer-bottom">
 
-        <div class="stat">
-            <div class="stat-header">
-                <span>Memory</span>
-                <span>4.2 GB / 8 GB</span>
-            </div>
-
-            <div class="progress">
-                <span style="width:52%"></span>
-            </div>
-        </div>
-
-        <div class="stat">
-            <div class="stat-header">
-                <span>Storage</span>
-                <span>38 GB</span>
-            </div>
-
-            <div class="progress">
-                <span style="width:38%"></span>
-            </div>
-        </div>
-
-    </div>
-
-</section>
-
-
-<section class="features" id="features">
-
-    <div class="section-title">
-        <h2>Հզոր հնարավորություններ</h2>
-
-        <p>
-            Ամեն ինչ, ինչ անհրաժեշտ է քո Game Server-ը կառավարելու համար։
-        </p>
-    </div>
-
-
-    <div class="feature-grid">
-
-        <div class="feature">
-            <div class="feature-icon">🖥️</div>
-            <h3>Server Management</h3>
             <p>
-                Կառավարիր քո սերվերները մեկ հարմար կառավարման վահանակից։
+                © 2026 Nxdactyl Hosting. Բոլոր իրավունքները պաշտպանված են։
             </p>
-        </div>
-
-        <div class="feature">
-            <div class="feature-icon">⚡</div>
-            <h3>Արագ աշխատանք</h3>
-            <p>
-                Ստեղծված է արագ և հարմար server management փորձ ապահովելու համար։
-            </p>
-        </div>
-
-        <div class="feature">
-            <div class="feature-icon">📊</div>
-            <h3>Resource Monitoring</h3>
-            <p>
-                Հետևիր CPU-ի, RAM-ի և Storage-ի օգտագործմանը։
-            </p>
-        </div>
-
-        <div class="feature">
-            <div class="feature-icon">🔐</div>
-            <h3>Անվտանգություն</h3>
-            <p>
-                Օգտատերերի Login և Register համակարգ՝ անվտանգ կառավարման համար։
-            </p>
-        </div>
-
-        <div class="feature">
-            <div class="feature-icon">💾</div>
-            <h3>Backups</h3>
-            <p>
-                Պահպանիր քո կարևոր server տվյալները և կառավարիր backup-ները։
-            </p>
-        </div>
-
-        <div class="feature">
-            <div class="feature-icon">🎮</div>
-            <h3>Game Hosting</h3>
-            <p>
-                Հարմարեցված է տարբեր խաղային սերվերների կառավարման համար։
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<section class="about" id="about">
-
-    <div class="about-content">
-
-        <h2>Ի՞նչ է Nxdactyl Hosting-ը</h2>
-
-        <p>
-            Nxdactyl Hosting-ը ստեղծվել է խաղային սերվերների
-            կառավարման գործընթացը ավելի պարզ, արագ և հարմար դարձնելու
-            նպատակով։ Այն նախատեսված է այն օգտատերերի համար, ովքեր
-            ցանկանում են ունենալ իրենց Game Server-ները կառավարելու
-            ժամանակակից և պարզ համակարգ։
-        </p>
-
-        <div class="tech">
-
-            <span>HTML5</span>
-            <span>CSS3</span>
-            <span>JavaScript</span>
-            <span>Game Hosting</span>
-            <span>Server Management</span>
 
         </div>
 
-    </div>
-
-</section>
-
-</main>
-
-
-<footer>
-    © 2026 Nxdactyl Hosting — Game Server Management Platform
-</footer>
+    </footer>
 
 </body>
 </html>
